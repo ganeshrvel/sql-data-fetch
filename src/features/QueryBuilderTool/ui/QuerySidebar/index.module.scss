@@ -1,0 +1,10 @@
+.root {
+  .listItem {
+    display: block;
+    cursor: pointer;
+
+    &.selected {
+      color: #2c33d5;
+    }
+  }
+}
