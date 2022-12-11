@@ -21,6 +21,7 @@ export default function QueryBuilderTool() {
   const [lastQuerySavedTime, setLastQuerySavedTime] = useState<number>(
     Date.now
   );
+  const [validationError, setValidationError] = useState<string | null>(null);
 
   const queryStore = useQueryStore();
   const savedQueries = useQueryStore((state) => state.savedQueries);
@@ -65,11 +66,38 @@ export default function QueryBuilderTool() {
     setLastQuerySavedTime(Date.now);
   }, [savedQueries, predefinedQueries, selectedQuery]);
 
+  function validateSqlCode(code?: string) {
+    let currentCode = code;
+
+    if (undefinedOrNull(code)) {
+      if (!undefinedOrNull(selectedPredefinedQueryId)) {
+        currentCode = selectedPredefinedQuery?.code ?? '';
+      } else {
+        currentCode = selectedQuery?.code ?? '';
+      }
+    }
+
+    currentCode = currentCode ?? '';
+
+    if (currentCode.trim() === '') {
+      setValidationError(
+        'Invalid SQL Query. Input a valid query and press on the RUN button'
+      );
+
+      return false;
+    }
+
+    setValidationError(null);
+
+    return true;
+  }
+
   function handleQueryTitleChange(title: string) {
     queryStore.updateSelectedQueryItem({ data: { title } });
   }
 
   function handleCodeChange(code: string) {
+    validateSqlCode(code);
     queryStore.updateSelectedQueryItem({ data: { code } });
   }
 
@@ -90,6 +118,11 @@ export default function QueryBuilderTool() {
 
   async function handleRunQuery() {
     if (isSqlResultsApiLoading) {
+      return;
+    }
+
+    const isValidCode = validateSqlCode();
+    if (!isValidCode) {
       return;
     }
 
@@ -170,7 +203,7 @@ export default function QueryBuilderTool() {
 
               <Button
                 text="RUN"
-                disabled={isSqlResultsApiLoading}
+                disabled={isSqlResultsApiLoading || !!validationError}
                 className={styles.runBtn}
                 icon={Images.RUN}
                 onClick={handleRunQuery}
@@ -181,7 +214,7 @@ export default function QueryBuilderTool() {
             <QueryResults
               loading={isSqlResultsApiLoading}
               results={sqlResults}
-              sqlResultsError={sqlResultsError}
+              error={validationError || sqlResultsError}
             />
           </div>
         </div>
@@ -213,5 +246,3 @@ export default function QueryBuilderTool() {
     </div>
   );
 }
-
-console.log('todo validation for editor and title');

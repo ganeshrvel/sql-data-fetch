@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import styles from './index.module.scss';
 import { PredefinedQueries, SavedQueries } from '../types';
 import { undefinedOrNull } from '../../../../helpers';
 import { CollapsibleMenu } from '../../../../components/CollapsibleMenu';
