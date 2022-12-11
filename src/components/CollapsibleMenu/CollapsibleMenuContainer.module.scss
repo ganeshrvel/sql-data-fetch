@@ -1,0 +1,47 @@
+@import '../../styles/scss/base/base';
+
+.root {
+  margin-bottom: 15px;
+
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: #2c3e50;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    color: #ffffff;
+    transition: all 0.4s;
+
+    &:hover {
+      background: darken(#2c3e50, 10%);
+    }
+
+    &::after {
+      content: '\276F';
+      width: 1em;
+      height: 1em;
+      text-align: center;
+      transition: all 0.35s;
+    }
+
+    &.isExpanded {
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .submenuBody {
+    color: #2c3e50;
+    background: white;
+    transition: all 0.35s;
+    user-select: none;
+    padding: 7px;
+  }
+}

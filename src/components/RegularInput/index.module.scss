@@ -1,0 +1,30 @@
+.root {
+  .title {
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .input {
+    display: block;
+    padding: 15px 15px;
+    color: inherit;
+    width: 100%;
+    max-width: 450px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: inherit;
+    border: 0.1px solid transparent;
+    transition: box-shadow 0.5s;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.37) 0 0 0 1px;
+    outline: none;
+
+    &:focus {
+      border: 0.1px solid rgba(0, 0, 0, 0.51);
+    }
+  }
+}
