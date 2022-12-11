@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
 import { Images } from '../../../../constants/Images';
-import { QueryBuilderHeaderButton } from '../QueryBuilderHeaderButton';
+import QueryBuilderHeaderButton from '../QueryBuilderHeaderButton';
 
 export interface EmptyHistoryProps {
   onCreateNewQuery: () => void;

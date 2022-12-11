@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { PredefinedQueries, SavedQueries } from '../types';
 import { undefinedOrNull } from '../../../../helpers';
-import { CollapsibleMenu } from '../../../../components/CollapsibleMenu';
+import CollapsibleMenu from '../../../../components/CollapsibleMenu';
 import { CollapsibleMenuEntity } from '../../../../components/CollapsibleMenu/CollapsibleMenuContainer';
 import { SubmenuEntity } from '../../../../components/CollapsibleMenu/CollapsibleSubmenuItem';
 

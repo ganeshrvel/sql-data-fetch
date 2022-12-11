@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.module.scss';
-import { QueryBuilderHeaderButton } from '../QueryBuilderHeaderButton';
+import QueryBuilderHeaderButton from '../QueryBuilderHeaderButton';
 import { Images } from '../../../../constants/Images';
 
 export interface QueryBuilderRibbonHeaderProps {

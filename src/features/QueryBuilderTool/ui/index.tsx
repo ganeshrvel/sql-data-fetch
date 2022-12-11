@@ -10,7 +10,7 @@ import QueryBuilderRibbonHeader from './QueryBuilderRibbonHeader';
 import { usePredefinedQueryStore } from './stores/predefinedQueryStore';
 import { QueryEntity } from './types';
 import { useSqlResultsStore } from './stores/sqlResultsStore';
-import { Button } from '../../../components/Button';
+import Button from '../../../components/Button';
 import { Images } from '../../../constants/Images';
 import classNames from 'classnames';
 import RegularInput from '../../../components/RegularInput';
