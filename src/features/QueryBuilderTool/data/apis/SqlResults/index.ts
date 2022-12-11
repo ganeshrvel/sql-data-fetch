@@ -2,7 +2,7 @@ import { ApiResponse } from '../../../../services/apis/ApiResponse';
 import { randomInteger } from '../../../../../helpers';
 
 export type SqlResponse = {
-  [key in string]: any;
+  [key in string]: string;
 };
 
 export class SqlRemoteData {
@@ -12,7 +12,9 @@ export class SqlRemoteData {
     const limit = randomInteger(10, 100);
     const skip = randomInteger(10, 50);
 
-    return fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`)
+    return fetch(
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}&select=id,title,description,price,discountPercentage,rating,stock,brand,category,thumbnail`
+    )
       .then((res) => res.json())
       .then((res) => {
         return ApiResponse.data<SqlResponse[]>(res.products);
