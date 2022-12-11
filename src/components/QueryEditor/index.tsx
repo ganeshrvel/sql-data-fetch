@@ -41,6 +41,7 @@ export default function QueryEditor({
         onBlur={() => {
           setIsFocused(false);
         }}
+        
       />
     </div>
   );

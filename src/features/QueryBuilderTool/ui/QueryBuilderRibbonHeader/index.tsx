@@ -13,14 +13,15 @@ export default function QueryBuilderRibbonHeader({
   return (
     <div className={styles.root}>
       <div className={styles.container}>
-          <div className={styles.appName}>SQL QUERY RUNNER</div>
-          <div className={styles.ctaWrapper}>
-              <QueryBuilderHeaderButton
-                  icon={Images.ADD}
-                  onClick={onCreateNewQuery}
-                  text="New Query"
-              />
-          </div>
+        <div className={styles.appName}>SQL QUERY RUNNER</div>
+        <div className={styles.ctaWrapper}>
+          <QueryBuilderHeaderButton
+            icon={Images.ADD}
+            onClick={onCreateNewQuery}
+            text="New Query"
+            className={styles.cta}
+          />
+        </div>
       </div>
     </div>
   );

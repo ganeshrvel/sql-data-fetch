@@ -38,6 +38,32 @@
             display: block;
             width: 100%;
           }
+
+          .buttonWrapper {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: end;
+
+            .editBtn {
+              background-color: #713063;
+              color: #ffffff;
+              width: 100px;
+              height: 35px;
+              text-align: center;
+              justify-content: center;
+              border-radius: 15px;
+              margin-right: 10px;
+            }
+            .runBtn {
+              background-color: $primaryColor;
+              color: #ffffff;
+              width: 100px;
+              height: 35px;
+              text-align: center;
+              justify-content: center;
+              border-radius: 15px;
+            }
+          }
         }
         .queryResultsWrapper {
         }

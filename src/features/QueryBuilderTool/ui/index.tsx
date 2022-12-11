@@ -11,6 +11,8 @@ import { usePredefinedQueryStore } from './stores/predefinedQueryStore';
 import { QueryEntity } from './types';
 import { useSqlResultsStore } from './stores/sqlResultsStore';
 import RegularInput from '../../../components/RegularInput';
+import { Button } from '../../../components/Button';
+import { Images } from '../../../constants/Images';
 
 export default function QueryBuilderTool() {
   const [selectedPredefinedQueryId, setSelectedPredefinedQueryId] = useState<
@@ -132,7 +134,7 @@ export default function QueryBuilderTool() {
           {isTemporaryPredefinedQuerySelected ? (
             <span className={styles.heading}>
               This is a predefined query, you may run the code. To edit the
-              query click on edit button
+              query, click on EDIT button
             </span>
           ) : (
             <span className={styles.heading}>Run your queries</span>
@@ -155,11 +157,25 @@ export default function QueryBuilderTool() {
               query={query}
               isTemporaryQuery={isTemporaryPredefinedQuerySelected}
             />
-            {isTemporaryPredefinedQuerySelected && (
-              <button onClick={handleEditPredefinedQuery}>Edit</button>
-            )}
+            <div className={styles.buttonWrapper}>
+              {isTemporaryPredefinedQuerySelected && (
+                <Button
+                  text="Edit"
+                  disabled={isSqlResultsApiLoading}
+                  className={styles.editBtn}
+                  icon={Images.EDIT}
+                  onClick={handleEditPredefinedQuery}
+                />
+              )}
 
-            <button onClick={handleRunQuery}>Run</button>
+              <Button
+                text="RUN"
+                disabled={isSqlResultsApiLoading}
+                className={styles.runBtn}
+                icon={Images.RUN}
+                onClick={handleRunQuery}
+              />
+            </div>
           </div>
           <div className={styles.queryResultsWrapper}>
             <QueryResults
