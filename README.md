@@ -9,7 +9,7 @@
 
 
 ## Overview of the app
-The app is built using **react.js**. It's a simple program to execute a SQL query. The app requires a code input from the user and on hitting the RUN button a (dummyjson.com)[https://dummyjson.com] API is called which responds with some mock data which is later displayed on the app.
+The app is built using **react.js**. It's a simple program to execute a SQL query. The app requires a code input from the user and on hitting the RUN button a [dummyjson.com](https://dummyjson.com) API is called which responds with some mock data which is later displayed on the app.
 
 - To create a new query tap on the "NEW QUERY" Button.
 - There are majorly two sections in the app:
@@ -30,7 +30,7 @@ The app is built using **react.js**. It's a simple program to execute a SQL quer
   - `selectedPredefinedSelectedQueryId`: Selected predefined query id
   - `predefinedQueries`: All predefined queries
 
-#### Performance: 
+### Performance: 
 
 - Lighthouse results using Brave browser (Version 1.45.127 Chromium: 107.0.5304.110 (Official Build) (arm64))
 
@@ -51,7 +51,7 @@ Cumulative Layout Shift - 0
 - The user needs to explicitly click on the RUN button to load the result, this has reduced the first load time
 - There are no routes used, thence lesses code
 
-**Let the perfomance scores speak for me**
+**Let the perfomance scores speak here:**
 
 - Perfomance score: **100**
 - Best practices score: **100**
