@@ -10,10 +10,10 @@ import QueryBuilderRibbonHeader from './QueryBuilderRibbonHeader';
 import { usePredefinedQueryStore } from './stores/predefinedQueryStore';
 import { QueryEntity } from './types';
 import { useSqlResultsStore } from './stores/sqlResultsStore';
-import RegularInput from '../../../components/RegularInput';
 import { Button } from '../../../components/Button';
 import { Images } from '../../../constants/Images';
 import classNames from 'classnames';
+import RegularInput from '../../../components/RegularInput';
 
 export default function QueryBuilderTool() {
   const [selectedPredefinedQueryId, setSelectedPredefinedQueryId] = useState<
