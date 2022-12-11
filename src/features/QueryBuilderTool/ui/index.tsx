@@ -13,6 +13,7 @@ import { useSqlResultsStore } from './stores/sqlResultsStore';
 import RegularInput from '../../../components/RegularInput';
 import { Button } from '../../../components/Button';
 import { Images } from '../../../constants/Images';
+import classNames from 'classnames';
 
 export default function QueryBuilderTool() {
   const [selectedPredefinedQueryId, setSelectedPredefinedQueryId] = useState<
@@ -166,7 +167,11 @@ export default function QueryBuilderTool() {
       return (
         <div className={styles.queryContainer}>
           {isTemporaryPredefinedQuerySelected ? (
-            <span className={styles.heading}>
+            <span
+              className={classNames(styles.heading, {
+                [styles.isPredefinedQuery]: true,
+              })}
+            >
               This is a predefined query, you may run the code. To edit the
               query, click on EDIT button
             </span>

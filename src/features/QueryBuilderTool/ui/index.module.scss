@@ -25,9 +25,14 @@
         padding: 15px 20px;
 
         .heading {
-          font-size: 14px;
+          font-size: 15px;
           font-weight: bold;
+
           color: lighten(#34568b, 18%);
+
+          &.isPredefinedQuery {
+            color: lighten(#713063, 18%);
+          }
         }
 
         .queryInputFormWrapper {
