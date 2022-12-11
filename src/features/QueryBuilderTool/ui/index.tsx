@@ -10,6 +10,7 @@ import QueryBuilderRibbonHeader from './QueryBuilderRibbonHeader';
 import { usePredefinedQueryStore } from './stores/predefinedQueryStore';
 import { QueryEntity } from './types';
 import { useSqlResultsStore } from './stores/sqlResultsStore';
+import RegularInput from '../../../components/RegularInput';
 
 export default function QueryBuilderTool() {
   const [selectedPredefinedQueryId, setSelectedPredefinedQueryId] = useState<
@@ -128,24 +129,28 @@ export default function QueryBuilderTool() {
     if (query) {
       return (
         <div className={styles.queryContainer}>
+          {isTemporaryPredefinedQuerySelected ? (
+            <span className={styles.heading}>
+              This is a predefined query, you may run the code. To edit the
+              query click on edit button
+            </span>
+          ) : (
+            <span className={styles.heading}>Run your queries</span>
+          )}
+
           <div className={styles.queryInputFormWrapper}>
-            {isTemporaryPredefinedQuerySelected ? (
-              <div>
-                This is a predefined query, You may run the code. To edit the
-                query click on edit button
-              </div>
-            ) : (
-              <div>Run your quries</div>
-            )}
-            {/*todo move these to a new component*/}
-            <input
+            <RegularInput
+              title="Title"
               placeholder="Enter the title here"
               autoFocus={false}
               value={query.title}
               onChange={(e) => handleQueryTitleChange(e?.target?.value ?? '')}
               readOnly={isTemporaryPredefinedQuerySelected}
+              maxLength={140}
             />
+            <div className={styles.divider} />
             <QueryEditor
+              title="SQL Code"
               onCodeChange={handleCodeChange}
               query={query}
               isTemporaryQuery={isTemporaryPredefinedQuerySelected}
@@ -193,6 +198,4 @@ export default function QueryBuilderTool() {
   );
 }
 
-console.log('todo move tiny components and inputs to a new file');
 console.log('todo validation for editor and title');
-console.log('todo add table sorting');

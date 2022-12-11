@@ -16,11 +16,28 @@
     }
 
     .bodyContainer {
+      width: calc(100% - #{$sidebarContainerWidth}px);
+      background: #e7f0f624;
       display: flex;
       flex-direction: column;
 
       .queryContainer {
+        padding: 15px 20px;
+
+        .heading {
+          font-size: 14px;
+          font-weight: bold;
+          color: lighten(#34568b, 18%);
+        }
+
         .queryInputFormWrapper {
+          margin-top: 15px;
+
+          .divider {
+            height: 10px;
+            display: block;
+            width: 100%;
+          }
         }
         .queryResultsWrapper {
         }
