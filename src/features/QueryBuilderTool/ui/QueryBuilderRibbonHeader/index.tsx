@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
+import { QueryBuilderHeaderButton } from '../QueryBuilderHeaderButton';
+import { Images } from '../../../../constants/Images';
 
 export interface QueryBuilderRibbonHeaderProps {
   onCreateNewQuery: () => void;
@@ -10,7 +12,16 @@ export default function QueryBuilderRibbonHeader({
 }: QueryBuilderRibbonHeaderProps) {
   return (
     <div className={styles.root}>
-      <button onClick={onCreateNewQuery}>New Query</button>
+      <div className={styles.container}>
+          <div className={styles.appName}>SQL QUERY RUNNER</div>
+          <div className={styles.ctaWrapper}>
+              <QueryBuilderHeaderButton
+                  icon={Images.ADD}
+                  onClick={onCreateNewQuery}
+                  text="New Query"
+              />
+          </div>
+      </div>
     </div>
   );
 }

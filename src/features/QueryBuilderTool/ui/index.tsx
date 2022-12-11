@@ -15,6 +15,9 @@ export default function QueryBuilderTool() {
   const [selectedPredefinedQueryId, setSelectedPredefinedQueryId] = useState<
     string | null
   >(null);
+  const [lastQuerySavedTime, setLastQuerySavedTime] = useState<number>(
+    Date.now
+  );
 
   const queryStore = useQueryStore();
   const savedQueries = useQueryStore((state) => state.savedQueries);
@@ -54,6 +57,10 @@ export default function QueryBuilderTool() {
   useEffect(() => {
     sqlResultsStore.reset();
   }, [selectedPredefinedQueryId, selectedQueryId]);
+
+  useEffect(() => {
+    setLastQuerySavedTime(Date.now);
+  }, [savedQueries, predefinedQueries, selectedQuery]);
 
   function handleQueryTitleChange(title: string) {
     queryStore.updateSelectedQueryItem({ data: { title } });
@@ -120,8 +127,8 @@ export default function QueryBuilderTool() {
 
     if (query) {
       return (
-        <div>
-          <div>
+        <div className={styles.queryContainer}>
+          <div className={styles.queryInputFormWrapper}>
             {isTemporaryPredefinedQuerySelected ? (
               <div>
                 This is a predefined query, You may run the code. To edit the
@@ -149,11 +156,13 @@ export default function QueryBuilderTool() {
 
             <button onClick={handleRunQuery}>Run</button>
           </div>
-          <QueryResults
-            loading={isSqlResultsApiLoading}
-            results={sqlResults}
-            sqlResultsError={sqlResultsError}
-          />
+          <div className={styles.queryResultsWrapper}>
+            <QueryResults
+              loading={isSqlResultsApiLoading}
+              results={sqlResults}
+              sqlResultsError={sqlResultsError}
+            />
+          </div>
         </div>
       );
     }
@@ -174,6 +183,7 @@ export default function QueryBuilderTool() {
             onPredefinedQueryMenuSelect={handlePredefinedQuerySelect}
             selectedQueryId={selectedQueryId}
             selectedPredefinedQueryId={selectedPredefinedQueryId}
+            lastQuerySavedTime={lastQuerySavedTime}
           />
         </div>
 
@@ -185,3 +195,4 @@ export default function QueryBuilderTool() {
 
 console.log('todo move tiny components and inputs to a new file');
 console.log('todo validation for editor and title');
+console.log('todo add table sorting');

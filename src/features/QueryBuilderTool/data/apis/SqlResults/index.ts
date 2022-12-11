@@ -1,17 +1,9 @@
 import { ApiResponse } from '../../../../services/apis/ApiResponse';
 import { randomInteger } from '../../../../../helpers';
 
-export interface SqlResponse {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-}
+export type SqlResponse = {
+  [key in string]: any;
+};
 
 export class SqlRemoteData {
   static shared: SqlRemoteData = new SqlRemoteData();

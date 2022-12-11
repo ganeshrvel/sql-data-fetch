@@ -1,16 +1,30 @@
+@import '../../../styles/scss/base/base';
+
 .root {
   .body {
-    margin-top: 64px;
+    margin-top: #{$headerHeight}px;
 
     display: flex;
     flex-direction: row;
 
     .querySidebarContainer {
-      width: 270px;
+      background: lighten($primaryColor, 56%);
+      height: calc(100vh - #{$headerHeight}px);
+      width: #{$sidebarContainerWidth}px;
+      padding: 15px 5px;
+      overflow-y: auto;
     }
 
     .bodyContainer {
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .queryContainer {
+        .queryInputFormWrapper {
+        }
+        .queryResultsWrapper {
+        }
+      }
     }
   }
 }

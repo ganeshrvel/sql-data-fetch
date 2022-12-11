@@ -1,8 +1,29 @@
+@import '../../../../styles/scss/base/base';
+
 .root {
   position: fixed;
-  height: 64px;
   width: 100%;
-  background: #34568b;
+  background: $primaryColor;
   top: 0;
   left: 0;
+  height: #{$headerHeight}px;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    padding: 15px 25px;
+    align-items: center;
+
+    .appName {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .ctaWrapper {
+      display: flex;
+      flex-direction: row;
+      margin-left: 20px;
+    }
+  }
 }
