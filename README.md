@@ -85,9 +85,10 @@ $ yarn
 
 ```shell
 # Development
-$ yarn dev
+$ yarn start
 
 # Build
 $ yarn build
+$ serve -s build        
 
 ```
