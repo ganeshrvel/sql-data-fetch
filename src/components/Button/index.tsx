@@ -32,7 +32,7 @@ export default function Button({
       onClick={handleOnClick}
     >
       <span className={styles.imageWrapper}>
-        <img src={icon} alt={text} />
+        <img width="auto" height={15} src={icon} alt={text} />
       </span>
       <span className={styles.textWrapper}>{text}</span>
     </span>
