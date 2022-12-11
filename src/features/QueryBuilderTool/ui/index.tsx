@@ -83,7 +83,7 @@ export default function QueryBuilderTool() {
 
     if (currentCode.trim() === '') {
       setValidationError(
-        'Invalid SQL Query. Input a valid query and press on the RUN button'
+        'Invalid SQL Query. Input a valid query and press the RUN button'
       );
 
       return false;
