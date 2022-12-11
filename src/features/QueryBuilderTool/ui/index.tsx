@@ -60,6 +60,7 @@ export default function QueryBuilderTool() {
 
   useEffect(() => {
     sqlResultsStore.reset();
+    setValidationError(null);
   }, [selectedPredefinedQueryId, selectedQueryId]);
 
   useEffect(() => {
